@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/filip/Desktop/CC/CC-projekat/LocalLib/LocalLib.csproj": {}
+  },
+  "projects": {
+    "/home/filip/Desktop/CC/CC-projekat/LocalLib/LocalLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/filip/Desktop/CC/CC-projekat/LocalLib/LocalLib.csproj",
+        "projectName": "LocalLib",
+        "projectPath": "/home/filip/Desktop/CC/CC-projekat/LocalLib/LocalLib.csproj",
+        "packagesPath": "/home/filip/.nuget/packages/",
+        "outputPath": "/home/filip/Desktop/CC/CC-projekat/LocalLib/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/filip/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/filip/.dotnet/sdk/6.0.417/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
