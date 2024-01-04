@@ -1,0 +1,4 @@
+docker run --name central-db --network cc-projekat -v central_db:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=central-db -e POSTGRES_USER=postgres  postgres
+curl -v -X PUT http://localhost:8000/central-api/return/1
+curl -v -X PUT http://localhost:8000/central-api/borrow/1
+curl -X POST -d '{"firstName":"zigara", "lastName":"ludi", "jmbg":"12388845", "address":"123 Main St", "loans":0}' -H "Content-Type: application/json" -v http://localhost:8000/central-api/register
