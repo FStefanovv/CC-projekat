@@ -7,8 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("CentralDb");
-
 builder.Services.AddDbContext<CentralDbContext>();
 
 builder.Services.AddScoped<UserRepository>();

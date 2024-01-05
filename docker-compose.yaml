@@ -1,0 +1,109 @@
+services:
+  central:
+    build: ./CentralLib
+    container_name: central
+    ports:
+      - "8000:80"
+    depends_on:
+      central-db:
+        condition: service_healthy
+
+  central-db:
+    image: postgres
+    container_name: central-db
+    volumes:
+      - central_vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=central-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  local-bg:
+    build: ./LocalLib
+    container_name: local-bg
+    ports:
+      - "8001:80"
+    environment:
+      - DB_HOST=bg-db
+    depends_on:
+      bg-db:
+        condition: service_healthy
+
+  bg-db:
+    image: postgres
+    container_name: bg-db
+    volumes:
+      - bg_vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=local-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  local-ns:
+    build: ./LocalLib
+    container_name: local-ns
+    ports:
+      - "8002:80"
+    environment:
+      - DB_HOST=ns-db
+    depends_on:
+      ns-db:
+        condition: service_healthy
+      
+
+  ns-db:
+    image: postgres
+    container_name: ns-db
+    volumes:
+      - ns_vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=local-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  local-nis:
+    build: ./LocalLib
+    container_name: local-nis
+    ports:
+      - "8003:80"
+    environment:
+      - DB_HOST=nis-db
+    depends_on:
+      nis-db:
+        condition: service_healthy
+
+  nis-db:
+    image: postgres
+    container_name: nis-db
+    volumes:
+      - nis_vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=local-db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  central_vol:
+  bg_vol:
+  ns_vol:
+  nis_vol:

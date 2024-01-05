@@ -13,7 +13,9 @@ public class LocalDbContext : DbContext {
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        
+        modelBuilder.Entity<Loan>()
+            .Property(l => l.Id)
+            .ValueGeneratedOnAdd();
     }
 
     public DbSet<Loan> Loans { get; set; }

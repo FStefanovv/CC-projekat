@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/filip/Desktop/CC/projekat/CentralLib/CentralLib.csproj": {}
+    "/home/filip/Desktop/CC/CC-projekat/CentralLib/CentralLib.csproj": {}
   },
   "projects": {
-    "/home/filip/Desktop/CC/projekat/CentralLib/CentralLib.csproj": {
+    "/home/filip/Desktop/CC/CC-projekat/CentralLib/CentralLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/filip/Desktop/CC/projekat/CentralLib/CentralLib.csproj",
+        "projectUniqueName": "/home/filip/Desktop/CC/CC-projekat/CentralLib/CentralLib.csproj",
         "projectName": "CentralLib",
-        "projectPath": "/home/filip/Desktop/CC/projekat/CentralLib/CentralLib.csproj",
+        "projectPath": "/home/filip/Desktop/CC/CC-projekat/CentralLib/CentralLib.csproj",
         "packagesPath": "/home/filip/.nuget/packages/",
-        "outputPath": "/home/filip/Desktop/CC/projekat/CentralLib/obj/",
+        "outputPath": "/home/filip/Desktop/CC/CC-projekat/CentralLib/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/filip/.nuget/NuGet/NuGet.Config"
