@@ -12,9 +12,9 @@ jobs:
       run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
     - name: Build and push central lib. image
       run: |
-        docker build . --file CentralLib/Dockerfile --tag fstefanov/cc-projekat:central
+        docker build ./CentralLib --file Dockerfile --tag fstefanov/cc-projekat:central
         docker push fstefanov/cc-projekat:central
     - name: Build and push local lib. image
       run: |
-        docker build . --file LocalLib/Dockerfile --tag fstefanov/cc-projekat:local
+        docker build ./LocalLib --file Dockerfile --tag fstefanov/cc-projekat:local
         docker push fstefanov/cc-projekat:local

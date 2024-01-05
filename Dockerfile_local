@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["LocalLib.csproj", "./"]
+COPY ["LocalLib/LocalLib.csproj", "./"]
 RUN dotnet restore "LocalLib.csproj"
 COPY . .
 WORKDIR "/src/"
