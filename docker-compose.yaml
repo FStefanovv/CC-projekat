@@ -1,6 +1,6 @@
 services:
   central:
-    build: ./CentralLib
+    image: fstefanov/cc-projekat:central
     container_name: central
     ports:
       - "8000:80"
@@ -24,7 +24,7 @@ services:
       retries: 5
 
   local-bg:
-    build: ./LocalLib
+    image: fstefanov/cc-projekat:local
     container_name: local-bg
     ports:
       - "8001:80"
@@ -50,7 +50,7 @@ services:
       retries: 5
 
   local-ns:
-    build: ./LocalLib
+    image: fstefanov/cc-projekat:local
     container_name: local-ns
     ports:
       - "8002:80"
@@ -77,7 +77,7 @@ services:
       retries: 5
 
   local-nis:
-    build: ./LocalLib
+    image: fstefanov/cc-projekat:local
     container_name: local-nis
     ports:
       - "8003:80"

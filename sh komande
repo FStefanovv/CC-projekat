@@ -2,3 +2,14 @@ docker run --name central-db --network cc-projekat -v central_db:/var/lib/postgr
 curl -v -X PUT http://localhost:8000/central-api/return/1
 curl -v -X PUT http://localhost:8000/central-api/borrow/1
 curl -X POST -d '{"firstName":"zigara", "lastName":"ludi", "jmbg":"12388845", "address":"123 Main St", "loans":0}' -H "Content-Type: application/json" -v http://localhost:8000/central-api/register
+
+curl -X POST \
+  http://localhost:8002/local-api/borrow \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "UserId": 123,
+    "BookName": "Sample Book",
+    "Writer": "John Doe",
+    "ISBN": "123456789"
+  }'
+
