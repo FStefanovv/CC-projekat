@@ -4,9 +4,9 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["CentralLib/CentralLib.csproj", "./"]
+COPY ["./CentralLib/CentralLib.csproj", "./"]
 RUN dotnet restore "CentralLib.csproj"
-COPY . .
+COPY ./CentralLib .
 WORKDIR "/src/"
 RUN dotnet build "CentralLib.csproj" -c Release -o /app/build
 
