@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: central-lib
+spec:
+  selector:
+    matchLabels:
+      app: central-db
+  template:
+    metadata:
+      labels:
+        app: central-db
+    spec:
+      containers:
+      - name: central-db
+        image: postgres
+        ports:
+          - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: central-db-config
+        volumeMounts: 
+          - mountPath: /var/lib/postgresql/data
+            name: central-db-vol
+
+      - name: central
+        command: ["/bin/sh", "-c", "sleep 30 && dotnet CentralLib.dll"]
+        image: fstefanov/cc-projekat:central
+        ports:  
+          - containerPort: 80
+
+      volumes: 
+        - name: central-db-vol
+          persistentVolumeClaim:
+            claimName: central-db-pvc

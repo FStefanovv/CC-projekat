@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: central-db-config
+data:
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: central-db
+  POSTGRES_USERNAME: postgres
+
