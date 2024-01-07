@@ -11,7 +11,7 @@ spec:
       labels:
         app: central-lib
     spec:
-      containers:
+      initContainers:
       - name: central-db
         image: postgres
         ports:
@@ -22,7 +22,11 @@ spec:
         volumeMounts: 
           - mountPath: /var/lib/postgresql/data
             name: central-db-vol
+        command: ['sh', '-c', 
+          'until pg_isready -h central-db -p 5432; 
+          do echo waiting for database; sleep 1; done;']
 
+      containers:
       - name: central
         image: fstefanov/cc-projekat:central
         ports:  

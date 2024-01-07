@@ -6,4 +6,5 @@ data:
   POSTGRES_PASSWORD: postgres
   POSTGRES_DB: central-db
   POSTGRES_USERNAME: postgres
+  POSTGRES_HOST: central-db
 
