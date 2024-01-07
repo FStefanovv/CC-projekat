@@ -9,15 +9,17 @@ namespace LocalLib.Services;
 
 public class LocalService {
     private readonly LocalRepository _repository;
+    private readonly String central_lib;
 
     public LocalService(LocalRepository repository) {
         _repository = repository;
+        central_lib = Environment.GetEnvironmentVariable("CENTRAL_LIB");
     }
 
     public async Task<bool> Register(User user) {
         using(var client = new HttpClient()) {
             try {
-                var apiUrl = "http://central:80/central-api/register";
+                var apiUrl = $"http://{central_lib}:80/central-api/register";
                 var jsonPayload = JsonSerializer.Serialize(user);
 
                 HttpContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
@@ -40,7 +42,7 @@ public class LocalService {
     public async Task<bool> Borrow(Loan newLoan) {
         using(var client = new HttpClient()) {
             try {
-                var apiUrl = "http://central:80/central-api/borrow/"+newLoan.UserId;
+                var apiUrl = $"http://{central_lib}:80/central-api/borrow/"+newLoan.UserId;
 
                 HttpContent content = new StringContent("", Encoding.UTF8, "application/json");
 
@@ -69,7 +71,7 @@ public class LocalService {
 
         using(var client = new HttpClient()) {
             try {
-                var apiUrl = "http://central:80/central-api/return/"+loan.UserId;
+                var apiUrl = $"http://{central_lib}:80/central-api/return/"+loan.UserId;
 
                 HttpContent content = new StringContent("", Encoding.UTF8, "application/json");
 

@@ -17,7 +17,7 @@ spec:
         imagePullPolicy: Always
         env: 
         - name: DB_HOST
-          value: "0.0.0.0"
+          value: "localhost"
         ports:  
           - containerPort: 80
 
