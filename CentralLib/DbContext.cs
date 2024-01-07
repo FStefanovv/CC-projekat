@@ -5,16 +5,10 @@ namespace CentralLib;
 
 public class CentralDbContext : DbContext {
 
-    private readonly IConfiguration _configuration;
 
-    public CentralDbContext(IConfiguration configuration) {
-        _configuration = configuration;
+    public CentralDbContext(DbContextOptions<CentralDbContext> options) : base(options) {
     } 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        options.UseNpgsql(_configuration.GetConnectionString("CentralDb"));
-    }
 
      protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

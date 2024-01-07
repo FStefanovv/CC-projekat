@@ -5,8 +5,6 @@ namespace LocalLib;
 
 public class LocalDbContext : DbContext {
 
-    private readonly IConfiguration _configuration;
-
     public LocalDbContext(DbContextOptions<LocalDbContext> options) : base(options) {
     } 
 

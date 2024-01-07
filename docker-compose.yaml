@@ -4,6 +4,8 @@ services:
     container_name: central
     ports:
       - "8000:80"
+    environment:
+      - DB_HOST=central-db
     depends_on:
       central-db:
         condition: service_healthy

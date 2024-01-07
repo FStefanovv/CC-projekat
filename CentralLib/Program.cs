@@ -7,7 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<CentralDbContext>();
+var host = Environment.GetEnvironmentVariable("DB_HOST");
+var connectionString = $"Host={host}; Database=central-db; Username=postgres; Password=postgres";
+
+builder.Services.AddDbContext<CentralDbContext>(options =>
+        options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
