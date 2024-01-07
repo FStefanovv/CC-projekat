@@ -5,11 +5,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: central-db
+      app: central-lib
   template:
     metadata:
       labels:
-        app: central-db
+        app: central-lib
     spec:
       containers:
       - name: central-db
