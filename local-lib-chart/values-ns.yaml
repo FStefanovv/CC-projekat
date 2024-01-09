@@ -1,0 +1,4 @@
+name: local-ns  
+dbVolume: ns-volume
+pvc: ns-pvc
+path: "/mnt/ns-db/data"

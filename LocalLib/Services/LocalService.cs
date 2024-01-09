@@ -13,9 +13,9 @@ public class LocalService {
 
     public LocalService(LocalRepository repository) {
         _repository = repository;
-        central_lib = Environment.GetEnvironmentVariable("CENTRAL_LIB");
+        central_lib = Environment.GetEnvironmentVariable("CENTRAL_HOST");
     }
-
+    
     public async Task<bool> Register(User user) {
         using(var client = new HttpClient()) {
             try {

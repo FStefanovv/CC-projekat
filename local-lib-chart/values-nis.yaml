@@ -1,0 +1,4 @@
+name: local-nis 
+dbVolume: nis-volume
+pvc: nis-pvc
+path: "/mnt/nis-db/data"

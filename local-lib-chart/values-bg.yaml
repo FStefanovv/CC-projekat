@@ -1,0 +1,4 @@
+name: local-bg  
+dbVolume: bg-volume
+pvc: bg-pvc
+path: "/mnt/bg-db/data"
