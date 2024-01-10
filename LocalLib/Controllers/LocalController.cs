@@ -5,7 +5,7 @@ using LocalLib.Services;
 namespace LocalLib.Controllers;
 
 [ApiController]
-[Route("local-api")]
+[Route("")]
 public class LocalController : ControllerBase
 {
     private readonly LocalService _service;

@@ -19,7 +19,7 @@ public class LocalService {
     public async Task<bool> Register(User user) {
         using(var client = new HttpClient()) {
             try {
-                var apiUrl = $"http://{central_lib}:80/central-api/register";
+                var apiUrl = $"http://{central_lib}:80/register";
                 var jsonPayload = JsonSerializer.Serialize(user);
 
                 HttpContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
@@ -42,7 +42,7 @@ public class LocalService {
     public async Task<bool> Borrow(Loan newLoan) {
         using(var client = new HttpClient()) {
             try {
-                var apiUrl = $"http://{central_lib}:80/central-api/borrow/"+newLoan.UserId;
+                var apiUrl = $"http://{central_lib}:80/borrow/"+newLoan.UserId;
 
                 HttpContent content = new StringContent("", Encoding.UTF8, "application/json");
 
@@ -71,7 +71,7 @@ public class LocalService {
 
         using(var client = new HttpClient()) {
             try {
-                var apiUrl = $"http://{central_lib}:80/central-api/return/"+loan.UserId;
+                var apiUrl = $"http://{central_lib}:80/return/"+loan.UserId;
 
                 HttpContent content = new StringContent("", Encoding.UTF8, "application/json");
 

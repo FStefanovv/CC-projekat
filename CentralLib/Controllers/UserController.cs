@@ -6,7 +6,7 @@ using CentralLib.Services;
 namespace CentralLib.Controllers;
 
 [ApiController]
-[Route("central-api")]
+[Route("")]
 public class UserController : ControllerBase
 {
     private readonly UserService _service;
