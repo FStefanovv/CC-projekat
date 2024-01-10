@@ -16,7 +16,7 @@ public class LocalService {
         central_lib = Environment.GetEnvironmentVariable("CENTRAL_HOST");
     }
     
-    public async Task<bool> Register(User user) {
+    public async Task Register(User user) {
         using(var client = new HttpClient()) {
             try {
                 var apiUrl = $"http://{central_lib}:80/register";
@@ -26,15 +26,13 @@ public class LocalService {
 
                 HttpResponseMessage response = await client.PostAsync(apiUrl, content);
 
-                if(response.IsSuccessStatusCode) {
-                    return true;
+                if(!response.IsSuccessStatusCode) {
+                    throw new Exception("User with that JMBG already exists");
                 }
-                else {
-                    return false;
-                }
+               
             }
-            catch  {
-                return false;
+            catch (Exception ex) {
+                throw new Exception(ex.Message);
             }
         }
     }

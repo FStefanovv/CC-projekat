@@ -16,10 +16,13 @@ public class LocalController : ControllerBase
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] User user) {
-        bool successfulRegistration = await _service.Register(user);
-
-        if (successfulRegistration) return Ok();
-        else return BadRequest();
+        try {
+            await _service.Register(user);
+            return Ok();
+        }
+        catch (Exception ex){
+            return BadRequest(ex.Message);
+        }
     }
 
 

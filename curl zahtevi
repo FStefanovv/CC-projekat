@@ -1,0 +1,15 @@
+curl -X POST -d '{"firstName":"Nikola", "lastName":"Nikolic", "jmbg":"333333", "address":"Bulevar oslobodjenja 45"}' -H "Content-Type: application/json" -v http://localhost:8001/register
+
+
+curl -X POST \
+  http://localhost:8001/borrow \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "UserId": 1,
+    "BookName": "Sample Book",
+    "Writer": "John Doe",
+    "ISBN": "123456789"
+  }'
+
+
+curl -v -X PUT http://localhost:8001/return/1
