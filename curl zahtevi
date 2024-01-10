@@ -1,8 +1,8 @@
-curl -X POST -d '{"firstName":"Nikola", "lastName":"Nikolic", "jmbg":"333333", "address":"Bulevar oslobodjenja 45"}' -H "Content-Type: application/json" -v http://localhost:8001/register
+curl -X POST -d '{"firstName":"Nikola", "lastName":"Nikolic", "jmbg":"333333", "address":"Bulevar oslobodjenja 45"}' -H "Content-Type: application/json" -v http://lib-ingress/local-bg/register
 
 
 curl -X POST \
-  http://localhost:8001/borrow \
+  http://lib-ingress/local-bg/borrow \
   -H 'Content-Type: application/json' \
   -d '{
     "UserId": 1,
@@ -12,4 +12,4 @@ curl -X POST \
   }'
 
 
-curl -v -X PUT http://localhost:8001/return/1
+curl -v -X PUT http://lib-ingress/local-bg/return/1

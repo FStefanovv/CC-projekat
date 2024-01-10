@@ -1,0 +1,8 @@
+helm install -f values-ns.yaml  ns-lib .
+helm install -f values-nis.yaml  nis-lib .
+helm install -f values-bg.yaml  bg-lib .
+
+helm ls --all --short | xargs -L1 helm uninstall
+
+kubectl exec -it central-lib-7cbbff9d47-jh9p9 -c central-db -- /bin/sh
+
