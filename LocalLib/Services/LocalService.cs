@@ -67,6 +67,8 @@ public class LocalService {
     public async Task Return(int id) {
         Loan loan = _repository.GetById(id);
 
+        if(!loan.Active)
+            throw new Exception();
         _repository.ReturnBook(loan);
 
         using(var client = new HttpClient()) {

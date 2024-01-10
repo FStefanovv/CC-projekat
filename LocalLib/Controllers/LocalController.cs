@@ -32,7 +32,12 @@ public class LocalController : ControllerBase
 
     [HttpPut("return/{id}")]
     public async Task<IActionResult> Return(int id){
-        await _service.Return(id);
-        return Ok();
+        try {
+            await _service.Return(id);
+            return Ok();
+        }
+        catch {
+            return BadRequest();
+        }
     }
 }

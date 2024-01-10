@@ -47,7 +47,7 @@ public class UserController : ControllerBase
             return Ok();
         }
         catch {
-            return BadRequest("user not found");
+            return BadRequest();
         }
     }
 }
